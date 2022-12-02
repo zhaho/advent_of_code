@@ -6,7 +6,6 @@ import (
     "bytes"
     "io"
     "fmt"
-    "strings"
     "strconv"
     "sort"
 )
@@ -36,26 +35,6 @@ func readLines(path string) (lines []string, err error) {
     }
     if err == io.EOF {
         err = nil
-    }
-    return
-}
-
-func writeLines(lines []string, path string) (err error) {
-    var (
-        file *os.File
-    )
-
-    if file, err = os.Create(path); err != nil {
-        return
-    }
-    defer file.Close()
-
-    for _,item := range lines {
-        _, err := file.WriteString(strings.TrimSpace(item) + "\n"); 
-        if err != nil {
-            fmt.Println(err)
-            break
-        }
     }
     return
 }
@@ -92,6 +71,4 @@ func main() {
     fmt.Println("Elf #2",arr[1], "calories!")
     fmt.Println("Elf #3",arr[2], "calories!")
     fmt.Println("\nTotal",arr[0]+arr[1]+arr[2], "calories!")
-    err = writeLines(lines, "output.txt")
-    fmt.Println(err)
 }
