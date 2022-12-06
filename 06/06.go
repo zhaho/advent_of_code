@@ -48,6 +48,7 @@ func main() {
 	
     for _, line := range lines {
 		for i := 0; i < len(line); i++ {
+            
 			m := make(map[string]bool)
 			m[string(line[i])] = true
 			m[string(line[i+1])] = true
@@ -58,7 +59,7 @@ func main() {
 				fmt.Println(i+4)
 				break
 			}
-			
+
 			for k := range m {
 				delete(m, k)
 			}
