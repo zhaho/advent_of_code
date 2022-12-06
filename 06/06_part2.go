@@ -63,7 +63,7 @@ func main() {
 			m[string(line[i+11])] = true
 			m[string(line[i+12])] = true
 			m[string(line[i+13])] = true
-			fmt.Println(m)
+			
 			if(len(m) == 14) {
 				fmt.Println(i+14)
 				break
