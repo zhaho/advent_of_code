@@ -12,4 +12,3 @@ gamma = int(gamma, 2)
 epsilon = int(epsilon, 2)
 
 print(gamma * epsilon)
-        
