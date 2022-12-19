@@ -7,4 +7,4 @@ for f in open('input.txt','r'):
         decNum += 1 
     prevNum = line
 
-print("Increased: "+str(incNum)+", Decreased: "+str(decNum))
+print("Increased: "+str(incNum)+"Decreased: "+str(decNum))
