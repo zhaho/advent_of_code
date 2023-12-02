@@ -7,7 +7,7 @@ with open("input.txt") as data:
         line = line.rstrip("\n")
         possible = True
         parts = line.split(":")
-        game = int(parts[0].replace("Game ",""))
+        game = int(parts[0].split(" ")[1])
         shows = parts[1].split(";")
         for show in shows:
             dices = show.split(",")
