@@ -1,38 +1,20 @@
-# Variables
 safe = 0
 
 def is_safe(row):
-    row = row.split(" ")
-    decrease = 0
-    increase = 0
-    for i, num in enumerate(row):
-        num = int(num)
-        # Check if not the last row
-        if i != len(row)-1:
-            if num > int(row[i+1]):
-                diff = num - int(row[i+1])
-                if diff > 0 and diff < 4:
-                    decrease += 1
-            elif num < int(row[i+1]):
-                diff = int(row[i+1]) - num
-                if diff > 0 and diff < 4:
-                    increase += 1
-                    
-    if decrease == len(row)-1 or increase == len(row)-1:
-        decrease = 0
-        increase = 0
-        return True
-    else:
-        decrease = 0
-        increase = 0
-        return False
-        
-        
+    row = list(map(int, row.split()))
+    decrease = increase = 0
+    
+    for i in range(len(row) - 1):
+        diff = abs(row[i] - row[i+1])
+        if 0 < diff < 4:
+            if row[i] > row[i+1]:
+                decrease += 1
+            elif row[i] < row[i+1]:
+                increase += 1
 
-# Separate the input and sort it
+    return decrease == len(row) - 1 or increase == len(row) - 1
+
 with open("input.txt", "r") as file:
-    for r in file:
-        safe += 1 if is_safe(r) else 0
+    safe = sum(1 for r in file if is_safe(r))
 
 print(safe)
-
